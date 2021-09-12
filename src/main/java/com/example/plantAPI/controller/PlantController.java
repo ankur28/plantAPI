@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.plantAPI.repository.PlantRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.plantAPI.entities.Plant;;
+import com.example.plantAPI.entities.Plant;
+import org.springframework.web.server.ResponseStatusException;;
 
 @RestController
 public class PlantController {
@@ -56,7 +58,11 @@ public class PlantController {
 
     @GetMapping("/plants/{id}")
     public Optional<Plant> getPlantById(@PathVariable("id") Integer id) {
-        return this.plantRepository.findById(id);
+        if(id != null && id > 1) {
+            return this.plantRepository.findById(id);
+        }else{
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No id found");
+        }
     }
 
     @PostMapping("/plants")
