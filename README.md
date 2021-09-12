@@ -1,6 +1,11 @@
 # plantAPI
 SpringBoot RESTful API with JPA
-Created a spring Boot Rest Api performing CRUD operationsusing Entity Plant. Refer to src/main/resources/data.sql for Data file
+Created a spring Boot Rest Api performing CRUD operationsusing Entity Plant. Refer to src/main/resources/data.sql for Data file.
+
+![image](https://user-images.githubusercontent.com/19842120/132986299-727f7e15-17b9-4ab2-9abf-980eab026716.png)
+
+
+
 Use Curl commands to make arequest to view th result JSON :
  -- Refer to Controller mappings to look for endpoints to hit -- 
  
